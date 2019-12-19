@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- this was in costa rica example -->
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
   <title>Mission to Mars</title>
+  <!-- <link rel="stylesheet" href="reset.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 </head>
 
 <body>
-
 
   <div class="container-fluid">
 
@@ -23,11 +25,67 @@
     <h2>Latest Mars News</h2>
     <h3>{{ mars.news_title }}</h3>
     <h4>{{ mars.news_p}}</h4>
-
-    <img src="{{ mars.featured_image_url }}" alt="Sloth">
-
+    <br>
+    <h4>{{ mars.mars_weather }}</h4>
+    <br>
   </div>
+   
+    
+    <!-- <div class="col-md-8"> -->
+
+    <img alt="featured" title="Featured image" src="{{ mars.featured_image_url }}" >
   </div>
+
+  <!-- <object type="text/html" data="mars_facts.html"></object> -->
+
+
+    <!-- <div class="col-md-4"> -->
+      <table> {{ mars.mars_facts | safe }}</table> 
+      <!-- <table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> <th>value</th> </tr> <tr> <th>description</th> <th></th> </tr> </thead> <tbody> <tr> <th>Equatorial Diameter:</th> <td>6,792 km</td> </tr> <tr> <th>Polar Diameter:</th> <td>6,752 km</td> </tr> <tr> <th>Mass:</th> <td>6.39 × 10^23 kg (0.11 Earths)</td> </tr> <tr> <th>Moons:</th> <td>2 (Phobos &amp; Deimos)</td> </tr> <tr> <th>Orbit Distance:</th> <td>227,943,824 km (1.38 AU)</td> </tr> <tr> <th>Orbit Period:</th> <td>687 days (1.9 years)</td> </tr> <tr> <th>Surface Temperature:</th> <td>-87 to -5 °C</td> </tr> <tr> <th>First Record:</th> <td>2nd millennium BC</td> </tr> <tr> <th>Recorded By:</th> <td>Egyptian astronomers</td> </tr> </tbody></table> -->
+
+      <!-- <div w3-include-html="mars_facts.html"></div> -->
+
+      <!-- <html> 
+        <head> 
+          <script src="jquery.js"></script> 
+          <script> 
+          $(function(){
+            $("#includedContent").load("mars_facts.html"); 
+          });
+          </script> 
+        </head> 
+      
+        <body> 
+           <div id="includedContent"></div>
+        </body> 
+      </html>
+
+      <script> 
+        function addCode() { 
+            document.getElementById("add_after_me").insertAdjacentHTML("afterend", 
+                "<h3>This is the text which has been inserted by JS</h3>"); 
+        } 
+    </script> -->
+
+    </div>
+
+    <!-- <img alt="hemi" title="Hemi image 1" src="{{ mars.hemisphere_image_urls }}" > -->
+
+    {% for hemi in mars.hemisphere_image_urls %}
+    <li style="color:blue">{{ hemi.title }}</li>
+    <img alt="hemi" title="Hemi image 1" src="{{ hemi.img_url }}" >
+    {% endfor %}
+
+
+  <div class="footer">
+    <br>
+      <p>Scott Clark | Data Analytics | December 2019</p>
+    </div>
+
+    <script>
+      includeHTML();
+      </script>
+
 </body>
 
 </html>
