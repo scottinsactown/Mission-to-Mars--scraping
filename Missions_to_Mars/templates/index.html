@@ -9,14 +9,14 @@
   <title>Mission to Mars</title>
   <!-- <link rel="stylesheet" href="reset.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 
 <body>
 
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin: 25px;">
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center" style="background-color: black; color: blanchedalmond;">
       <h1>Mission to Mars</h1>
       <p></p>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a></p> 
@@ -26,65 +26,60 @@
     <h3>{{ mars.news_title }}</h3>
     <h4>{{ mars.news_p}}</h4>
     <br>
-    <h4>{{ mars.mars_weather }}</h4>
-    <br>
-  </div>
+ 
+  <div class="row"> 
+
+      <div class="col-md-6"> 
+ 
+        <h2>Featured Image</h2>
+        <img alt="featured" title="Featured image" src="{{ mars.featured_image_url }}" 
+        style="width: 100%">
+
+      </div>
+
+      <div class="col-md-6 box"> 
+
+        <h2>Latest Mars Weather</h2>
+        <h4>{{ mars.mars_weather }}</h4>
+        <br>
+        <h2>Mars Facts</h2>
+        <table> {{ mars.mars_facts | safe }}</table> 
+
+      </div>
    
+    </div>
     
-    <!-- <div class="col-md-8"> -->
+    <br>
 
-    <img alt="featured" title="Featured image" src="{{ mars.featured_image_url }}" >
-  </div>
+    <div class="row" style="display: flex;">
 
-  <!-- <object type="text/html" data="mars_facts.html"></object> -->
-
-
-    <!-- <div class="col-md-4"> -->
-      <table> {{ mars.mars_facts | safe }}</table> 
-      <!-- <table border="1" class="dataframe"> <thead> <tr style="text-align: right;"> <th></th> <th>value</th> </tr> <tr> <th>description</th> <th></th> </tr> </thead> <tbody> <tr> <th>Equatorial Diameter:</th> <td>6,792 km</td> </tr> <tr> <th>Polar Diameter:</th> <td>6,752 km</td> </tr> <tr> <th>Mass:</th> <td>6.39 × 10^23 kg (0.11 Earths)</td> </tr> <tr> <th>Moons:</th> <td>2 (Phobos &amp; Deimos)</td> </tr> <tr> <th>Orbit Distance:</th> <td>227,943,824 km (1.38 AU)</td> </tr> <tr> <th>Orbit Period:</th> <td>687 days (1.9 years)</td> </tr> <tr> <th>Surface Temperature:</th> <td>-87 to -5 °C</td> </tr> <tr> <th>First Record:</th> <td>2nd millennium BC</td> </tr> <tr> <th>Recorded By:</th> <td>Egyptian astronomers</td> </tr> </tbody></table> -->
-
-      <!-- <div w3-include-html="mars_facts.html"></div> -->
-
-      <!-- <html> 
-        <head> 
-          <script src="jquery.js"></script> 
-          <script> 
-          $(function(){
-            $("#includedContent").load("mars_facts.html"); 
-          });
-          </script> 
-        </head> 
-      
-        <body> 
-           <div id="includedContent"></div>
-        </body> 
-      </html>
-
-      <script> 
-        function addCode() { 
-            document.getElementById("add_after_me").insertAdjacentHTML("afterend", 
-                "<h3>This is the text which has been inserted by JS</h3>"); 
-        } 
-    </script> -->
+      {% for hemi in mars.hemisphere_image_urls[0:2] %}
+      <div class="column" style="flex: 50%">
+        <h3 style="text-align: center; vertical-align: text-bottom; margin-bottom: 0px;">{{ hemi.title }}</h3>
+        <img alt="hemi" title="Hemi image 1" src="{{ hemi.img_url }}" style="width:100%; padding: 15px;padding-top: 5px">
+      </div>
+     {% endfor %}
 
     </div>
 
-    <!-- <img alt="hemi" title="Hemi image 1" src="{{ mars.hemisphere_image_urls }}" > -->
+    <div class="row" style="display: flex;">
 
-    {% for hemi in mars.hemisphere_image_urls %}
-    <li style="color:blue">{{ hemi.title }}</li>
-    <img alt="hemi" title="Hemi image 1" src="{{ hemi.img_url }}" >
-    {% endfor %}
-
+      {% for hemi in mars.hemisphere_image_urls[2:] %}
+      <div class="column" style="flex: 50%">
+        <h3 style="text-align: center; vertical-align: text-bottom; margin-bottom: 0px;">{{ hemi.title }}</h3>
+        <img id="hemi" alt="hemi" title="Hemi image 1" src="{{ hemi.img_url }}" >
+      </div>
+      {% endfor %}
+    
+    </div>
 
   <div class="footer">
     <br>
       <p>Scott Clark | Data Analytics | December 2019</p>
-    </div>
 
-    <script>
-      includeHTML();
-      </script>
+    </div>
+    
+</div>
 
 </body>
 

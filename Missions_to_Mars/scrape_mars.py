@@ -3,15 +3,8 @@ from bs4 import BeautifulSoup as bs
 import time
 import pandas as pd
 
-# Use Pymongo for CRUD applications for your database. For this homework, you can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
-
-# make driver local and in github
-
-# db = mongo.mars_db
-# collection = db.mars_data
-
 def init_browser():        
-    executable_path = {"executable_path": "C:\Program Files\ChromeDriver\chromedriver.exe"}
+    executable_path = {"executable_path": "chromedriver.exe"}
     return Browser("chrome", **executable_path, headless=False)
 
 def scrape():
@@ -35,7 +28,7 @@ def scrape():
     browser.visit(url)
     time.sleep(1)
 
-    # Locate jpg through Full Image button
+    # Locate current jpg through Full Image button
     browser.click_link_by_partial_text('FULL IMAGE')
     time.sleep(2)
 
@@ -71,10 +64,7 @@ def scrape():
     mars_facts.columns.name = mars_facts.index.name
     mars_facts.index.name = None
     mars_facts = mars_facts.to_html()
-    mars_facts = mars_facts.replace("\n","")
-    # text_file = open("templates/mars_facts.html", "w")
-    # text_file.write(mars_facts)
-    # text_file.close()   
+    mars_facts = mars_facts.replace("\n","")   
     
 # Mars hemispheres
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -94,8 +84,7 @@ def scrape():
         browser.back()
 
 # Store data in a dictionary
-#     db.collection.upsert(
-        mars_data = {
+    mars_data = {
         "news_title": news_title,
         "news_p": teaser,
         "featured_image_url": featured_image_url,
@@ -103,7 +92,6 @@ def scrape():
         "mars_facts": mars_facts,
         "hemisphere_image_urls": hemisphere_image_urls
     }
-#     )
 
     browser.quit()
 
