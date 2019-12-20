@@ -1,0 +1,43 @@
+
+  .footer {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: lightgray;
+      color: black;
+      text-align: center !important;
+    }
+
+  .hemi_img {
+      width:100%; 
+      padding: 15px; 
+      padding-top: 5px;
+    }
+
+  .hemi_h {
+    text-align: center; 
+    vertical-align: text-bottom; 
+    margin-bottom: 0px;
+  }
+
+  .jumbotron {
+      background-color: black; 
+      color: blanchedalmond;
+      text-shadow: 2px 2px 50px red
+      ;
+    }
+
+    .btn-lg {
+      background-color: rgba(194, 55, 55, 0.99);
+      border-radius: 50%; 
+      color: black; 
+      width: 100px; 
+      border: darkred;
+      box-shadow: 2px 2px 50px red;
+    } 
+
+    .head_future {
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      text-shadow: 3px 0px 10px red;
+    }

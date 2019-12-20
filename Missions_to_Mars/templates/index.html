@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- this was in costa rica example -->
-  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+
   <title>Mission to Mars</title>
-  <!-- <link rel="stylesheet" href="reset.css"> -->
+  <link rel="stylesheet" href="static/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="static/style.css">
 </head>
 
-<body>
+<body class=body>
 
   <div class="container-fluid" style="margin: 25px;">
 
-    <div class="jumbotron text-center" style="background-color: black; color: blanchedalmond;">
-      <h1>Mission to Mars</h1>
+    <div class="jumbotron text-center" style="background-image: url('static/pia17810.jpg')">
+      <h1><strong>Mission to Mars</strong></h1>
       <p></p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a></p> 
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">
+        <strong>Scrape<br>the Red<br>Planet<br></strong></a></p> 
     </div>
 
-    <h2>Latest Mars News</h2>
+    <h2 class="head_future">Latest Mars News</h2>
     <h3>{{ mars.news_title }}</h3>
     <h4>{{ mars.news_p}}</h4>
     <br>
@@ -31,7 +31,7 @@
 
       <div class="col-md-6"> 
  
-        <h2>Featured Image</h2>
+        <h2 class="head_future">Featured Image</h2>
         <img alt="featured" title="Featured image" src="{{ mars.featured_image_url }}" 
         style="width: 100%">
 
@@ -39,10 +39,11 @@
 
       <div class="col-md-6 box"> 
 
-        <h2>Latest Mars Weather</h2>
+        <br><br>
+        <h2 class="head_future">Latest Mars Weather</h2>
         <h4>{{ mars.mars_weather }}</h4>
         <br>
-        <h2>Mars Facts</h2>
+        <h2 class="head_future">Mars Facts</h2>
         <table> {{ mars.mars_facts | safe }}</table> 
 
       </div>
@@ -50,13 +51,14 @@
     </div>
     
     <br>
+    <h2 class="head_future">Mars Hemishperes</h2>
 
     <div class="row" style="display: flex;">
 
       {% for hemi in mars.hemisphere_image_urls[0:2] %}
       <div class="column" style="flex: 50%">
-        <h3 style="text-align: center; vertical-align: text-bottom; margin-bottom: 0px;">{{ hemi.title }}</h3>
-        <img alt="hemi" title="Hemi image 1" src="{{ hemi.img_url }}" style="width:100%; padding: 15px;padding-top: 5px">
+        <h3 class="hemi_h"> {{ hemi.title }}</h3>
+        <img class="hemi_img" alt="hemi" title="Hemi image" src="{{ hemi.img_url }}" >
       </div>
      {% endfor %}
 
@@ -66,8 +68,8 @@
 
       {% for hemi in mars.hemisphere_image_urls[2:] %}
       <div class="column" style="flex: 50%">
-        <h3 style="text-align: center; vertical-align: text-bottom; margin-bottom: 0px;">{{ hemi.title }}</h3>
-        <img id="hemi" alt="hemi" title="Hemi image 1" src="{{ hemi.img_url }}" >
+        <h3 class="hemi_h">{{ hemi.title }}</h3>
+        <img class="hemi_img" alt="hemi" title="Hemi image" src="{{ hemi.img_url }}" >
       </div>
       {% endfor %}
     
