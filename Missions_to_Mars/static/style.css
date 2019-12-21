@@ -1,11 +1,15 @@
 
+  .body {
+    background-color: rgb(201, 176, 166);
+    }
+
   .footer {
       position: relative;
       left: 0;
       bottom: 0;
       width: 100%;
-      background-color: lightgray;
-      color: black;
+      background-color: black;
+      color: blanchedalmond;
       text-align: center !important;
     }
 
@@ -19,7 +23,7 @@
     text-align: center; 
     vertical-align: text-bottom; 
     margin-bottom: 0px;
-  }
+   }
 
   .jumbotron {
       background-color: black; 
@@ -39,5 +43,9 @@
 
     .head_future {
       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      text-shadow: 3px 0px 10px red;
+      text-shadow: 2px 0px 5px lightcoral;
+    }
+
+    .dataframe {
+      border: rgb(201, 176, 166);
     }
