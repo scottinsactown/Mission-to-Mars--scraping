@@ -1,4 +1,4 @@
-Mission to Mars
+![Mission to Mars Header](https://github.com/scottinsactown/Mission-to-Mars--scraping/blob/master/Mission_top_med.jpg)
 
 Web application that scrapes various websites for data related to the planet Mars and displays the information in a single HTML page using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 * Jupyter Notebook file called `mission_to_mars.ipynb` demonstrates the scraping and analysis tasks.
@@ -15,3 +15,6 @@ Web application that scrapes various websites for data related to the planet Mar
   * Created a root route that will query the Mongo database and pass the mars data into an HTML template to display the data.
   
 * Created a template HTML index file that takes the Mars data dictionary and display all of the data in HTML elements.
+
+![Mission to Mars Contet1](https://github.com/scottinsactown/Mission-to-Mars--scraping/blob/master/Mission_middle.jpg)
+![Mission to Mars Content2](https://github.com/scottinsactown/Mission-to-Mars--scraping/blob/master/Mission_bottom.jpg)
